@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d081uuwcy43na"]
+
+[node name="Desktop" type="Control" unique_id=1400210438]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1173196932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Taskbar" type="Panel" parent="." unique_id=2090214770]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.92200005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.07998657
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="Taskbar" unique_id=1299395468]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 13.0
+offset_bottom = 21.00003
+
+[node name="OpenApps" type="HBoxContainer" parent="Taskbar" unique_id=2012589173]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Clock" type="Label" parent="Taskbar" unique_id=1640249409]
+layout_mode = 0
+offset_top = -332.0
+offset_right = 40.0
+offset_bottom = -309.0
+
+[node name="DesktopIcons" type="VBoxContainer" parent="." unique_id=474506027]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 626.0
+offset_bottom = 316.0
+theme_override_constants/separation = 8
+
+[node name="WindowLayer" type="Control" parent="." unique_id=1973543107]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
