@@ -1,5 +1,16 @@
 [gd_scene format=3 uid="uid://d081uuwcy43na"]
 
+[ext_resource type="Texture2D" uid="uid://cj2577m4svd4j" path="res://assets/large_ui/background.png" id="1_fsv5x"]
+[ext_resource type="Texture2D" uid="uid://xpkccji4ba5t" path="res://assets/icons/power_button.png" id="2_dye3h"]
+[ext_resource type="PackedScene" uid="uid://b223cf6qk5ljs" path="res://scenes/DesktopIcon.tscn" id="2_h488k"]
+[ext_resource type="Texture2D" uid="uid://co5k5sp32xe7x" path="res://assets/icons/def_folder.png" id="3_eysme"]
+[ext_resource type="Texture2D" uid="uid://csej5p6j1vsa6" path="res://assets/icons/mail.png" id="4_5mnb0"]
+[ext_resource type="Texture2D" uid="uid://bv4m2nlhj5d01" path="res://assets/icons/message.png" id="5_ra1mf"]
+[ext_resource type="Texture2D" uid="uid://co3gjyqmxvkt5" path="res://assets/icons/presentation_software.png" id="8_jj6sf"]
+[ext_resource type="Texture2D" uid="uid://dypy234m6d8y3" path="res://assets/icons/world_web.png" id="9_4x3xo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj6sf"]
+
 [node name="Desktop" type="Control" unique_id=1400210438]
 layout_mode = 3
 anchors_preset = 0
@@ -13,10 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_fsv5x")
 
-[node name="Taskbar" type="Panel" parent="." unique_id=2090214770]
+[node name="Taskbar" type="Control" parent="." unique_id=729945771]
 layout_mode = 1
-anchors_preset = -1
 anchor_top = 0.92200005
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,33 +35,152 @@ offset_top = 0.07998657
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Start" type="Button" parent="Taskbar" unique_id=1299395468]
+[node name="Start" type="TextureButton" parent="Taskbar" unique_id=1419578067]
+z_index = 2
 layout_mode = 0
-offset_left = 5.0
+offset_left = 6.0
 offset_top = 13.0
-offset_right = 13.0
-offset_bottom = 21.00003
+offset_right = 21.0
+offset_bottom = 26.0
+texture_normal = ExtResource("2_dye3h")
 
 [node name="OpenApps" type="HBoxContainer" parent="Taskbar" unique_id=2012589173]
+z_index = 2
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 43.0
 
 [node name="Clock" type="Label" parent="Taskbar" unique_id=1640249409]
-layout_mode = 0
-offset_top = -332.0
-offset_right = 40.0
-offset_bottom = -309.0
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.933
+anchor_top = 0.5
+anchor_right = 0.98700005
+anchor_bottom = 0.89300007
+offset_left = -0.11999512
+offset_right = 0.3199463
+offset_bottom = 0.9959984
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "12:00 PM"
 
-[node name="DesktopIcons" type="VBoxContainer" parent="." unique_id=474506027]
-layout_mode = 0
+[node name="Background" type="Panel" parent="Taskbar" unique_id=49079694]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.393
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.00399971
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jj6sf")
+
+[node name="WindowLayer" type="Control" parent="." unique_id=1973543107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesktopSurface" type="Control" parent="." unique_id=1580859467]
+anchors_preset = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 626.0
-offset_bottom = 316.0
-theme_override_constants/separation = 8
+offset_bottom = 326.0
 
-[node name="WindowLayer" type="Control" parent="." unique_id=1973543107]
+[node name="Explorer" parent="DesktopSurface" unique_id=640154209 instance=ExtResource("2_h488k")]
+layout_mode = 0
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 63.999992
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Icon" parent="DesktopSurface/Explorer/Content" parent_id_path=PackedInt32Array(640154209, 1812759387) index="0" unique_id=797020375]
+texture = ExtResource("3_eysme")
+
+[node name="Label" parent="DesktopSurface/Explorer/Content" parent_id_path=PackedInt32Array(640154209, 1812759387) index="1" unique_id=1738476930]
+text = "Explorer"
+
+[node name="Mail" parent="DesktopSurface" unique_id=1153286813 instance=ExtResource("2_h488k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 60.0
+offset_right = 63.999992
+offset_bottom = 124.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Icon" parent="DesktopSurface/Mail/Content" parent_id_path=PackedInt32Array(1153286813, 1812759387) index="0" unique_id=797020375]
+texture = ExtResource("4_5mnb0")
+
+[node name="Label" parent="DesktopSurface/Mail/Content" parent_id_path=PackedInt32Array(1153286813, 1812759387) index="1" unique_id=1738476930]
+text = "Mail"
+
+[node name="Messager" parent="DesktopSurface" unique_id=612244795 instance=ExtResource("2_h488k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 120.0
+offset_right = 63.999992
+offset_bottom = 184.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Icon" parent="DesktopSurface/Messager/Content" parent_id_path=PackedInt32Array(612244795, 1812759387) index="0" unique_id=797020375]
+texture = ExtResource("5_ra1mf")
+
+[node name="Label" parent="DesktopSurface/Messager/Content" parent_id_path=PackedInt32Array(612244795, 1812759387) index="1" unique_id=1738476930]
+text = "Messager"
+
+[node name="Presenter" parent="DesktopSurface" unique_id=1433987020 instance=ExtResource("2_h488k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 180.0
+offset_right = 63.999992
+offset_bottom = 244.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Icon" parent="DesktopSurface/Presenter/Content" parent_id_path=PackedInt32Array(1433987020, 1812759387) index="0" unique_id=797020375]
+texture = ExtResource("8_jj6sf")
+
+[node name="Label" parent="DesktopSurface/Presenter/Content" parent_id_path=PackedInt32Array(1433987020, 1812759387) index="1" unique_id=1738476930]
+text = "Presenter"
+
+[node name="WorldWeb" parent="DesktopSurface" unique_id=328981218 instance=ExtResource("2_h488k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 240.0
+offset_right = 63.999992
+offset_bottom = 304.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Icon" parent="DesktopSurface/WorldWeb/Content" parent_id_path=PackedInt32Array(328981218, 1812759387) index="0" unique_id=797020375]
+texture = ExtResource("9_4x3xo")
+
+[node name="Label" parent="DesktopSurface/WorldWeb/Content" parent_id_path=PackedInt32Array(328981218, 1812759387) index="1" unique_id=1738476930]
+text = "World Web"
+
+[editable path="DesktopSurface/Explorer"]
+[editable path="DesktopSurface/Mail"]
+[editable path="DesktopSurface/Messager"]
+[editable path="DesktopSurface/Presenter"]
+[editable path="DesktopSurface/WorldWeb"]

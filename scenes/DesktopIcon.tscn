@@ -1,9 +1,38 @@
 [gd_scene format=3 uid="uid://b223cf6qk5ljs"]
 
-[node name="DesktopIcon" type="Control" unique_id=1774426225]
+[ext_resource type="Script" uid="uid://dv7q1a3ebyk6s" path="res://src/desktop/DesktopIcon.cs" id="1_nj7gu"]
+
+[node name="DesktopIcon" type="Control" unique_id=1848786968]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 3
+anchor_right = 0.112
+anchor_bottom = 0.178
+offset_right = 0.3199997
+offset_bottom = -0.08000183
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nj7gu")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1812759387]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=797020375]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Content" unique_id=1738476930]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
