@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://d081uuwcy43na"]
 
+[ext_resource type="Script" uid="uid://qs30sxauaoo7" path="res://src/desktop/DesktopManager.cs" id="1_dye3h"]
 [ext_resource type="Texture2D" uid="uid://cj2577m4svd4j" path="res://assets/large_ui/background.png" id="1_fsv5x"]
 [ext_resource type="Texture2D" uid="uid://xpkccji4ba5t" path="res://assets/icons/power_button.png" id="2_dye3h"]
 [ext_resource type="PackedScene" uid="uid://b223cf6qk5ljs" path="res://scenes/DesktopIcon.tscn" id="2_h488k"]
 [ext_resource type="Texture2D" uid="uid://co5k5sp32xe7x" path="res://assets/icons/def_folder.png" id="3_eysme"]
 [ext_resource type="Texture2D" uid="uid://csej5p6j1vsa6" path="res://assets/icons/mail.png" id="4_5mnb0"]
+[ext_resource type="Script" uid="uid://5o04hxuvrvg4" path="res://src/desktop/WindowManager.cs" id="4_ik535"]
 [ext_resource type="Texture2D" uid="uid://bv4m2nlhj5d01" path="res://assets/icons/message.png" id="5_ra1mf"]
 [ext_resource type="Texture2D" uid="uid://co3gjyqmxvkt5" path="res://assets/icons/presentation_software.png" id="8_jj6sf"]
 [ext_resource type="Texture2D" uid="uid://dypy234m6d8y3" path="res://assets/icons/world_web.png" id="9_4x3xo"]
@@ -13,9 +15,12 @@
 
 [node name="Desktop" type="Control" unique_id=1400210438]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 360.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dye3h")
 
 [node name="Wallpaper" type="TextureRect" parent="." unique_id=1173196932]
 layout_mode = 1
@@ -28,20 +33,24 @@ texture = ExtResource("1_fsv5x")
 
 [node name="Taskbar" type="Control" parent="." unique_id=729945771]
 layout_mode = 1
-anchor_top = 0.92200005
+anchor_top = 0.95300007
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 0.07998657
-grow_horizontal = 2
-grow_vertical = 0
+offset_top = -0.08001709
+grow_vertical = 2
 
 [node name="Start" type="TextureButton" parent="Taskbar" unique_id=1419578067]
 z_index = 2
-layout_mode = 0
-offset_left = 6.0
-offset_top = 13.0
-offset_right = 21.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.11800001
+anchor_right = 0.030000001
+anchor_bottom = 0.882
+offset_left = 0.15999985
+offset_top = -0.006000042
+offset_right = -0.20000076
+offset_bottom = 0.005999565
 texture_normal = ExtResource("2_dye3h")
 
 [node name="OpenApps" type="HBoxContainer" parent="Taskbar" unique_id=2012589173]
@@ -57,12 +66,12 @@ z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.933
-anchor_top = 0.5
 anchor_right = 0.98700005
-anchor_bottom = 0.89300007
+anchor_bottom = 0.70600003
 offset_left = -0.11999512
+offset_top = 3.0
 offset_right = 0.3199463
-offset_bottom = 0.9959984
+offset_bottom = 2.9979992
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 8
@@ -74,8 +83,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.393
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -0.00399971
+anchor_bottom = 1.4120001
+offset_top = -6.681
+offset_bottom = -7.0040016
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jj6sf")
@@ -85,23 +95,27 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_ik535")
 
 [node name="DesktopSurface" type="Control" parent="." unique_id=1580859467]
-anchors_preset = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 626.0
-offset_bottom = 326.0
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = 0.044000003
+anchor_right = 0.97800004
+anchor_bottom = 0.906
+offset_top = 0.1599989
+offset_right = 0.079956055
+offset_bottom = -0.16000366
 
 [node name="Explorer" parent="DesktopSurface" unique_id=640154209 instance=ExtResource("2_h488k")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 63.999992
-offset_bottom = 64.0
+layout_mode = 1
+anchor_right = 0.105000004
+anchor_bottom = 0.20600002
+offset_right = -0.05001068
+offset_bottom = 0.13999557
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -112,13 +126,13 @@ texture = ExtResource("3_eysme")
 text = "Explorer"
 
 [node name="Mail" parent="DesktopSurface" unique_id=1153286813 instance=ExtResource("2_h488k")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 60.0
-offset_right = 63.999992
-offset_bottom = 124.0
+layout_mode = 1
+anchor_top = 0.194
+anchor_right = 0.105000004
+anchor_bottom = 0.4
+offset_top = -0.1400032
+offset_right = -0.05001068
+offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -129,13 +143,13 @@ texture = ExtResource("4_5mnb0")
 text = "Mail"
 
 [node name="Messager" parent="DesktopSurface" unique_id=612244795 instance=ExtResource("2_h488k")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 120.0
-offset_right = 63.999992
-offset_bottom = 184.0
+layout_mode = 1
+anchor_top = 0.38700002
+anchor_right = 0.105000004
+anchor_bottom = 0.59400004
+offset_top = 0.02999115
+offset_right = -0.05001068
+offset_bottom = -0.14001465
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -146,13 +160,13 @@ texture = ExtResource("5_ra1mf")
 text = "Messager"
 
 [node name="Presenter" parent="DesktopSurface" unique_id=1433987020 instance=ExtResource("2_h488k")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 180.0
-offset_right = 63.999992
-offset_bottom = 244.0
+layout_mode = 1
+anchor_top = 0.58100003
+anchor_right = 0.105000004
+anchor_bottom = 0.78700006
+offset_top = -0.11001587
+offset_right = -0.05001068
+offset_bottom = 0.02998352
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -163,13 +177,13 @@ texture = ExtResource("8_jj6sf")
 text = "Presenter"
 
 [node name="WorldWeb" parent="DesktopSurface" unique_id=328981218 instance=ExtResource("2_h488k")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 240.0
-offset_right = 63.999992
-offset_bottom = 304.0
+layout_mode = 1
+anchor_top = 0.77400005
+anchor_right = 0.105000004
+anchor_bottom = 0.98100007
+offset_top = 0.0599823
+offset_right = -0.05001068
+offset_bottom = -0.11001587
 grow_horizontal = 1
 grow_vertical = 1
 
