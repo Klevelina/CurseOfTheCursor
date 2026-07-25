@@ -6,6 +6,18 @@ public partial class WindowBase : Panel
 	private bool _dragging;
 	private Vector2 _dragOffset;
 	
+	private Button _closeButton;
+	private Button _minimizeButton;
+	
+	public override void _Ready()
+	{
+		_closeButton = GetNode<Button>("TitleBar/CloseButton");
+		_minimizeButton = GetNode<Button>("TitleBar/MinimizeButton");
+		
+		_closeButton.Pressed += Close;
+		_minimizeButton.Pressed += Minimize;
+	}
+	
 	public override void _GuiInput(InputEvent @event)
 	{
 		if (@event is InputEventMouseButton mouseButton)
@@ -14,8 +26,12 @@ public partial class WindowBase : Panel
 			{
 				if (mouseButton.Pressed)
 				{
-					_dragging = mouse.Pressed;
+					_dragging = true;
 					_dragOffset = mouseButton.Position;
+				}
+				else
+				{
+					_dragging = false;
 				}
 			}
 		}
@@ -23,17 +39,19 @@ public partial class WindowBase : Panel
 	
 	public override void _Process(double delta)
 	{
-		if(!_dragging)
+		if(_dragging)
 		{
 			GlobalPosition = GetGlobalMousePosition() - _dragOffset;
 		}
-		
-		
 	}
 	
 	public void Close()
 	{
 		QueueFree();
-		CloseButton.Pressed += Close;
+	}
+	
+	private void Minimize()
+	{
+		Hide();
 	}
 }

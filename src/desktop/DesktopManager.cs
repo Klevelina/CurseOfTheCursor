@@ -49,7 +49,7 @@ public partial class DesktopManager : Control
 		return false;
 	}
 	
-	public void SelectIcon(Desktop icon)
+	public void SelectIcon(DesktopIcon icon)
 	{
 		if (_selectedIcon != null)
 			_selectedIcon.Deselect();
